@@ -20,4 +20,7 @@ dependencies {
     implementation(libs.exposed.jdbc)
     implementation(libs.hikari)
     implementation(libs.postgres)
+    implementation("io.ktor:ktor-server-content-negotiation-jvm:3.5.2")
+    implementation("io.ktor:ktor-serialization-kotlinx-json-jvm:3.5.2")
+
 }

@@ -17,4 +17,19 @@ class ApplicationTest {
         assertEquals(HttpStatusCode.OK, response.status)
         assertEquals("Hello, Ktor!", response.bodyAsText())
     }
+    
+    @Test
+    fun ivalidLogingReturnUnauthorized() = testApplication {
+        application {
+            module()
+        }
+        val response = client.post("/auth/login") {
+            contentType(ContentType.Application.Json)
+            setBody(LoginRequest(
+                usernameOrEmail = "invalidUser",
+                password = "invalidPassword"
+            ))
+        }
+        assertEquals(HttpStatusCode.Unauthorized, response.status)
+    }
 }
