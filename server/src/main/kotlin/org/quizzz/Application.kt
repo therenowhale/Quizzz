@@ -14,6 +14,7 @@ fun main() {
 
 fun Application.module() {
     DatabaseFactory.init()
+    createTables()
 
     environment.monitor.subscribe(ApplicationStopped)
     { DatabaseFactory.close() }
